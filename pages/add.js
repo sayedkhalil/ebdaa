@@ -25,14 +25,24 @@ const Add = () => {
     const[current,setcurrent]=useState(1)
     const [skill,setskill]=useState({})
     const [skills,setskills]=useState([])
+    const [inputskill,setinputskill]=useState("add skill")
+    const[nsp,setnsp]=useState(1)
     const [lang,setlang]=useState({})
     const [langs,setlangs]=useState([])
+    const [inputlang,setinputlang]=useState("add language")
+    const[lnp,setlnp]=useState(1)
     const [edue,setedue]=useState({})
     const [edues,setedues]=useState([])
+    const [btnedue,setbtnedue]=useState("add item")
+    const[countedue,setcountedue]=useState(1)
     const [work,setwork]=useState({})
     const [works,setworks]=useState([])
+    const [btnwork,setbtnwork]=useState("add item")
+    const[countwork,setcountwork]=useState(1)
     const [cer,setcer]=useState({})
     const [cers,setcers]=useState([]);
+    const [btncer,setbtncer]=useState("add item")
+    const[countcer,setcountcer]=useState(1)
      const [imagesitem, setImagesitem] = useState([]);
     const [cv,setcv]=useState({})
     const [logoitem, setlogoitem] = useState([""]);
@@ -166,18 +176,33 @@ const uploadlogo = (e) => {
      const onrange = (e) => { setskill({...skill,range:e.target.value});  }
      const onaddskill= (e) => {
          e.preventDefault()
-         skills.push(skill)
-        setskills(skills);
-     setcv({...cv,skills:skills})
+        if(nsp!=7){
+              nsp++
+              setnsp(nsp)
+              skills.push(skill)
+             setskills(skills);
+          setcv({...cv,skills:skills})
+          setskill({name:"",range:""})
+          setinputskill("Add another skill")
+        } else{
+              setinputskill("You have entered the maximum number of skills")    
+        }
       }
      const onlang = (e) => setlang({name:e.target.value})
      const onrangelang = (e) => { setlang({...lang,range:e.target.value});     }
      const addlang= (e) =>{
          e.preventDefault()
+         if(lnp!=3){
+              lnp++
+              setlnp(lnp)
          langs.push(lang)
         setlangs(langs);
         setcv({...cv,langs:langs})
-        
+        setlang({name:"",range:""})
+          setinputlang("Add another language")
+        } else{
+              setinputlang("You have entered the maximum number of languages")    
+        }
      }
     // add edue--------------------------------------------------------------
     const ondeg = (e) => setedue({...edue,deg:e.target.value})
@@ -187,9 +212,17 @@ const uploadlogo = (e) => {
     }
      const onaddedue=(e)=>{
          e.preventDefault()
+         if(countedue!=4){
+              countedue++
+              setcountedue(countedue)
          edues.push(edue)
         setedues(edues);
         setcv({...cv,edues:edues})
+        setedue({deg:"",uni:"",date:"",summary:""})
+        setbtnedue("Add another item")
+      } else{
+            setbtnedue("You have entered the maximum number of items")    
+      }
             }
      
      // add work--------------------------------------------------------------
@@ -200,9 +233,17 @@ const uploadlogo = (e) => {
     const onworksummary =(e)=>setwork({...work,summary:e.target.value});
      const onaddwork = (e) => { 
          e.preventDefault()
+         if(countwork!=5){
+              countwork++
+              setcountwork(countwork)
          works.push(work)
      setworks(works);
         setcv({...cv,works:works})
+        setwork({comp:"",to:"",from:"",summary:"",jo:""})
+        setbtnwork("Add another item")
+      } else{
+            setbtnwork("You have entered the maximum number of items")    
+      }
            }
       // add certifficate--------------------------------------------------------------
     const oncert = (e) => setcer({...cer,deg:e.target.value})
@@ -210,9 +251,18 @@ const uploadlogo = (e) => {
     const oncersummary =(e)=>setcer({...cer,summary:e.target.value});
     const onaddcer = (e) => { 
          e.preventDefault()
+         if(countcer!=4){
+              countcer++
+              setcountcer(countcer)
          cers.push(cer)
      setcers(cers);
-     setcv({...cv,cers:cers})}
+     setcv({...cv,cers:cers})
+     setcer({deg:"",date:"",summary:""})
+        setbtncer("Add another item")
+      } else{
+            setbtncer("You have entered the maximum number of items")    
+      }
+}
      //      add cv-------------------------------------------------------------
 const addcv=async(e)=>{
        e.preventDefault()      
@@ -333,139 +383,48 @@ crossOrigin="anonymous"></script>
          <h3 className="c-orange m-3">
             SKILLS
             </h3>
-     <span>You must click on Add Item to add the item</span>
+     <span className="text-danger">Maximum 6 skills</span>
            <form className=" border border-warning mt-3 p-2" onSubmit={onaddskill}>
            <div className="input-group mt-3">
   <        div className="input-group-prepend">
          <span className="input-group-text c-orange" id="">skill</span>
           </div>
           
-          <input type="text"onChange={onskill} className="form-control" required/>
+          <input type="text"onChange={onskill} className="form-control" required value={skill.name}/>
            </div>
           <div className="input-group mt-1">
   <        div className="input-group-prepend">
          <span className="input-group-text c-orange" id="">skill level</span>
           </div>          
-          <input type="range"onChange={onrange} className="form-control" required/>
+          <input type="range"onChange={onrange} className="form-control" required value={skill.range}/>
            </div>
-           <input className="input-group-text c-orange w-100 tc mt-2 "onSubmit={onaddskill} type="submit" name="" value="add item"/>
+           <input className="input-group-text c-orange w-100 tc mt-2 "onSubmit={onaddskill} type="submit" name="" value={inputskill}/>
             </form>
-            <form className=" border border-warning mt-3 p-2" onSubmit={onaddskill}>
-           <div className="input-group mt-3">
-  <        div className="input-group-prepend">
-         <span className="input-group-text c-orange" id="">skill</span>
-          </div>
-          
-          <input type="text"onChange={onskill} className="form-control" required/>
-           </div>
-          <div className="input-group mt-1">
-  <        div className="input-group-prepend">
-         <span className="input-group-text c-orange" id="">skill level</span>
-          </div>          
-          <input type="range"onChange={onrange} className="form-control" required/>
-           </div>
-           <input className="input-group-text c-orange w-100 tc mt-2 "onSubmit={onaddskill} type="submit" name="" value="add item"/>
-            </form>
-            <form className=" border border-warning mt-3 p-2" onSubmit={onaddskill}>
-           <div className="input-group mt-3">
-  <        div className="input-group-prepend">
-         <span className="input-group-text c-orange" id="">skill</span>
-          </div>
-          
-          <input type="text"onChange={onskill} className="form-control" required/>
-           </div>
-          <div className="input-group mt-1">
-  <        div className="input-group-prepend">
-         <span className="input-group-text c-orange" id="">skill level</span>
-          </div>          
-          <input type="range"onChange={onrange} className="form-control" required/>
-           </div>
-           <input className="input-group-text c-orange w-100 tc mt-2 "onSubmit={onaddskill} type="submit" name="" value="add item"/>
-            </form>
-            <form className=" border border-warning mt-3 p-2" onSubmit={onaddskill}>
-           <div className="input-group mt-3">
-  <        div className="input-group-prepend">
-         <span className="input-group-text c-orange" id="">skill</span>
-          </div>
-          
-          <input type="text"onChange={onskill} className="form-control" required/>
-           </div>
-          <div className="input-group mt-1">
-  <        div className="input-group-prepend">
-         <span className="input-group-text c-orange" id="">skill level</span>
-          </div>          
-          <input type="range"onChange={onrange} className="form-control" required/>
-           </div>
-           <input className="input-group-text c-orange w-100 tc mt-2 "onSubmit={onaddskill} type="submit" name="" value="add item"/>
-            </form>
-            <form className=" border border-warning mt-3 p-2" onSubmit={onaddskill}>
-           <div className="input-group mt-3">
-  <        div className="input-group-prepend">
-         <span className="input-group-text c-orange" id="">skill</span>
-          </div>
-          
-          <input type="text"onChange={onskill} className="form-control" required/>
-           </div>
-          <div className="input-group mt-1">
-  <        div className="input-group-prepend">
-         <span className="input-group-text c-orange" id="">skill level</span>
-          </div>          
-          <input type="range"onChange={onrange} className="form-control" required/>
-           </div>
-           <input className="input-group-text c-orange w-100 tc mt-2 "onSubmit={onaddskill} type="submit" name="" value="add item"/>
-            </form>
-            <form className=" border border-warning mt-3 p-2" onSubmit={onaddskill}>
-           <div className="input-group mt-3">
-  <        div className="input-group-prepend">
-         <span className="input-group-text c-orange" id="">skill</span>
-          </div>
-          
-          <input type="text"onChange={onskill} className="form-control" required/>
-           </div>
-          <div className="input-group mt-1">
-  <        div className="input-group-prepend">
-         <span className="input-group-text c-orange" id="">skill level</span>
-          </div>          
-          <input type="range"onChange={onrange} className="form-control" required/>
-           </div>
-           <input className="input-group-text c-orange w-100 tc mt-2 "onSubmit={onaddskill} type="submit" name="" value="add item"/>
-            </form>
+         
+           
+         
                      
            <h3 className="c-orange m-3">
            Language Skills
             </h3>
+            <span className="text-danger">Maximum 2 language</span>
             <form className=" border border-warning mt-3 p-2"onSubmit={addlang}>
             <div className="input-group mt-3">
   <        div className="input-group-prepend">
          <span className="input-group-text c-orange" id="">language</span>
           </div>
           
-          <input type="text"onChange={onlang} className="form-control"/>
+          <input type="text"onChange={onlang} value={lang.name} required className="form-control"/>
            </div>
           <div className="input-group mt-1">
   <        div className="input-group-prepend">
          <span className="input-group-text c-orange" id="">language level</span>
           </div>          
-          <input type="range"onChange={onrangelang} className="form-control"/>
+          <input type="range"onChange={onrangelang} value={lang.range} required className="form-control"/>
            </div>
-           <input className="input-group-text c-orange w-100 tc mt-2 " onSubmit={addlang} type="submit" name="" value="add item"/>
+           <input className="input-group-text c-orange w-100 tc mt-2 " onSubmit={addlang} type="submit" name="" value={inputlang}/>
             </form>
-            <form className=" border border-warning mt-3 p-2"onSubmit={addlang}>
-            <div className="input-group mt-3">
-  <        div className="input-group-prepend">
-         <span className="input-group-text c-orange" id="">language</span>
-          </div>
-          
-          <input type="text"onChange={onlang}required className="form-control"/>
-           </div>
-          <div className="input-group mt-1">
-  <        div className="input-group-prepend">
-         <span className="input-group-text c-orange" id="">language level</span>
-          </div>          
-          <input type="range"onChange={onrangelang}required className="form-control"/>
-           </div>
-           <input className="input-group-text c-orange w-100 tc mt-2 " onSubmit={addlang} type="submit" name="" value="add item"/>
-            </form>
+  
            
         </div>
          {/* education---------------------------------------------------------------- */}
@@ -473,14 +432,14 @@ crossOrigin="anonymous"></script>
             <h3 className="c-orange m-3">
             EDUCATION
             </h3>
-            <span>You must click on Add Item to add the item</span>
+            <span className="text-danger">Maximum 3 Study certificates</span>
            <form className=" border border-warning mt-3 p-2"onSubmit={onaddedue}>
              {/* degree--------------------------------------- */}
              <div className="input-group mt-3">
   <        div className="input-group-prepend">
          <span className="input-group-text c-orange" id="">degree name</span>
           </div>
-          <input type="text"onChange={ondeg}required className="form-control"/>
+          <input type="text"onChange={ondeg}required value={edue.deg} className="form-control"/>
            </div>
            <div className="">
              {/* University--------------------------------------- */}
@@ -488,109 +447,39 @@ crossOrigin="anonymous"></script>
   <        div className="input-group-prepend">
          <span className="input-group-text c-orange" id=""  >University</span>
           </div>
-          <input type="text" onChange={onuni} required className="form-control"/>
+          <input type="text" onChange={onuni} value={edue.uni}   required className="form-control"/>
            </div>
            {/* date--------------------------------------- */}
            <div className="input-group mt-1">
   <        div className="input-group-prepend">
          <span className="input-group-text c-orange" id="">date</span>
           </div>
-          <input type="date" onChange={ondateedu} className="form-control" required/>
+          <input type="date" onChange={ondateedu} className="form-control" value={edue.date} required/>
            </div>
              {/* summary--------------------------------------- */}
              <div className="input-group mt-1">
   <        div className="input-group-prepend">
          <span className="input-group-text c-orange" id="">summary</span>
           </div>
-          <textarea rows="" cols=""  className="form-control" maxLength={60} onChange={oneduesummary}  required></textarea>
+          <textarea rows="" cols=""  className="form-control" maxLength={60} value={edue.summary} onChange={oneduesummary}  required></textarea>
            </div>
            </div>
-           <input className="input-group-text c-orange w-100 tc mt-2 " onSubmit={onaddedue} type="submit" name="" value="add item"/>
+           <input className="input-group-text c-orange w-100 tc mt-2 " onSubmit={onaddedue} type="submit" name="" value={btnedue}/>
             </form>
-           {/* ------------------------------------------------------------------ */}
-           <form className=" border border-warning mt-3 p-2"onSubmit={onaddedue}>
-             {/* degree--------------------------------------- */}
-             <div className="input-group mt-3">
-  <        div className="input-group-prepend">
-         <span className="input-group-text c-orange" id="">degree name</span>
-          </div>
-          <input type="text"onChange={ondeg} required className="form-control"/>
-           </div>
-           <div className="">
-             {/* University--------------------------------------- */}
-             <div className="input-group mt-1">
-  <        div className="input-group-prepend">
-         <span className="input-group-text c-orange" id=""  >University</span>
-          </div>
-          <input type="text" onChange={onuni} required className="form-control"/>
-           </div>
-           {/* date--------------------------------------- */}
-           <div className="input-group mt-1">
-  <        div className="input-group-prepend">
-         <span className="input-group-text c-orange" id="">date</span>
-          </div>
-          <input type="date" onChange={ondateedu} className="form-control" required/>
-           </div>
-             {/* summary--------------------------------------- */}
-             <div className="input-group mt-1">
-  <        div className="input-group-prepend">
-         <span className="input-group-text c-orange" id="">summary</span>
-          </div>
-          <textarea rows="" cols=""  className="form-control" maxLength={60} onChange={oneduesummary}  required></textarea>
-           </div>
-           </div>
-           <input className="input-group-text c-orange w-100 tc mt-2 " onSubmit={onaddedue} type="submit" name="" value="add item"/>
-            </form>
-           {/* ------------------------------------------------------------------ */}
-           <form className=" border border-warning mt-3 p-2"onSubmit={onaddedue}>
-             {/* degree--------------------------------------- */}
-             <div className="input-group mt-3">
-  <        div className="input-group-prepend">
-         <span className="input-group-text c-orange" id="">degree name</span>
-          </div>
-          <input type="text"onChange={ondeg}required className="form-control"/>
-           </div>
-           <div className="">
-             {/* University--------------------------------------- */}
-             <div className="input-group mt-1">
-  <        div className="input-group-prepend">
-         <span className="input-group-text c-orange" id=""  >University</span>
-          </div>
-          <input type="text" onChange={onuni} required className="form-control"/>
-           </div>
-           {/* date--------------------------------------- */}
-           <div className="input-group mt-1">
-  <        div className="input-group-prepend">
-         <span className="input-group-text c-orange" id="">date</span>
-          </div>
-          <input type="date" onChange={ondateedu} className="form-control" required/>
-           </div>
-             {/* summary--------------------------------------- */}
-             <div className="input-group mt-1">
-  <        div className="input-group-prepend">
-         <span className="input-group-text c-orange" id="">summary</span>
-          </div>
-          <textarea rows="" cols=""  className="form-control" maxLength={60} onChange={oneduesummary}  required></textarea>
-           </div>
-           </div>
-           <input className="input-group-text c-orange w-100 tc mt-2 " onSubmit={onaddedue} type="submit" name="" value="add item"/>
-            </form>
-           {/* ------------------------------------------------------------------ */}   
-           
-           
+                     
         </div>
         {/* work---------------------------------------------------------------- */}
         <div className="work-add dnon"style={{ display:sec4}}>
             <h3 className="c-orange m-3">
             WORK EXPERIENCE            </h3>
-            <span>You must click on Add Item to add the item</span>
+            <span className="text-danger">Maximum 4 professional experiences</span>
             {/* company--------------------------------------- */}
      <form className=" border border-warning mt-3 p-2" onSubmit={onaddwork}>
      <div className="input-group mt-3">
   <        div className="input-group-prepend">
          <span className="input-group-text c-orange" id="">company</span>
           </div>
-          <input type="text" className="form-control" onChange={oncomp} required/>
+          <input type="text" className="form-control" onChange={oncomp} value={work.comp} required/>
            </div>
            <div className="">
              {/* jop title--------------------------------------- */}
@@ -598,7 +487,7 @@ crossOrigin="anonymous"></script>
   <        div className="input-group-prepend">
          <span className="input-group-text c-orange" id="">jop title</span>
           </div>
-          <input type="text" className="form-control" onChange={onjo}/>
+          <input type="text" className="form-control" value={work.jo} onChange={onjo}/>
            </div>
            
            {/* date--------------------------------------- */}
@@ -607,153 +496,31 @@ crossOrigin="anonymous"></script>
   <        div className="input-group-prepend">
          <span className="input-group-text c-orange" id="">from</span>
           </div>
-          <input type="date" className="form-control" onChange={onfrom} required/>
+          <input type="date" className="form-control" onChange={onfrom} value={work.from} required/>
            </div>
            <div className="input-group mt-1">
   <        div className="input-group-prepend">
          <span className="input-group-text c-orange" id="">to</span>
           </div>
-          <input type="date" className="form-control" onChange={onto}required/>
+          <input type="date" className="form-control" value={work.to} onChange={onto}required/>
            </div>
              {/* summary--------------------------------------- */}
              <div className="input-group mt-1">
   <        div className="input-group-prepend">
          <span className="input-group-text c-orange" id="">summary</span>
           </div>
-          <textarea rows="" cols=""  className="form-control" maxLength={140} onChange={onworksummary}required></textarea>
+          <textarea rows="" cols=""  className="form-control" maxLength={140} value={work.summary} onChange={onworksummary}required></textarea>
            </div>
            </div>
-           <input className="input-group-text c-orange w-100 tc mt-2 " onSubmit={onaddwork} type="submit" name="" value="add item"/>
-     </form>
-     <form className=" border border-warning  mt-3 p-2" onSubmit={onaddwork}>
-     <div className="input-group mt-3">
-  <        div className="input-group-prepend">
-         <span className="input-group-text c-orange" id="">company</span>
-          </div>
-          <input type="text" className="form-control" onChange={oncomp} required/>
-           </div>
-           <div className="">
-             {/* jop title--------------------------------------- */}
-              <div className="input-group mt-1">
-  <        div className="input-group-prepend">
-         <span className="input-group-text c-orange" id="">jop title</span>
-          </div>
-          <input type="text" className="form-control" onChange={ontitle}/>
-           </div>
-           
-           {/* date--------------------------------------- */}
-           <h6 className="text-dark mt-3">Joining Date</h6>
-           <div className="input-group mt-1">
-  <        div className="input-group-prepend">
-         <span className="input-group-text c-orange" id="">from</span>
-          </div>
-          <input type="date" className="form-control" onChange={onfrom} required/>
-           </div>
-           <div className="input-group mt-1">
-  <        div className="input-group-prepend">
-         <span className="input-group-text c-orange" id="">to</span>
-          </div>
-          <input type="date" className="form-control" onChange={onto}required/>
-           </div>
-             {/* summary--------------------------------------- */}
-             <div className="input-group mt-1">
-  <        div className="input-group-prepend">
-         <span className="input-group-text c-orange" id="">summary</span>
-          </div>
-          <textarea rows="" cols=""  className="form-control" maxLength={140} onChange={onworksummary}required></textarea>
-           </div>
-           </div>
-           <input className="input-group-text c-orange w-100 tc mt-2 " onSubmit={onaddwork} type="submit" name="" value="add item"/>
-     </form>
-     <form className=" border border-warning  mt-3 p-2" onSubmit={onaddwork}>
-     <div className="input-group mt-3">
-  <        div className="input-group-prepend">
-         <span className="input-group-text c-orange" id="">company</span>
-          </div>
-          <input type="text" className="form-control" onChange={oncomp} required/>
-           </div>
-           <div className="">
-             {/* jop title--------------------------------------- */}
-              <div className="input-group mt-1">
-  <        div className="input-group-prepend">
-         <span className="input-group-text c-orange" id="">jop title</span>
-          </div>
-          <input type="text" className="form-control" onChange={ontitle}/>
-           </div>
-           
-           {/* date--------------------------------------- */}
-           <h6 className="text-dark mt-3">Joining Date</h6>
-           <div className="input-group mt-1">
-  <        div className="input-group-prepend">
-         <span className="input-group-text c-orange" id="">from</span>
-          </div>
-          <input type="date" className="form-control" onChange={onfrom} required/>
-           </div>
-           <div className="input-group mt-1">
-  <        div className="input-group-prepend">
-         <span className="input-group-text c-orange" id="">to</span>
-          </div>
-          <input type="date" className="form-control" onChange={onto}required/>
-           </div>
-             {/* summary--------------------------------------- */}
-             <div className="input-group mt-1">
-  <        div className="input-group-prepend">
-         <span className="input-group-text c-orange" id="">summary</span>
-          </div>
-          <textarea rows="" cols=""  className="form-control" maxLength={140} onChange={onworksummary}required></textarea>
-           </div>
-           </div>
-           <input className="input-group-text c-orange w-100 tc mt-2 " onSubmit={onaddwork} type="submit" name="" value="add item"/>
-     </form>
-     <form className=" border border-warning  mt-3 p-2" onSubmit={onaddwork}>
-     <div className="input-group mt-3">
-  <        div className="input-group-prepend">
-         <span className="input-group-text c-orange" id="">company</span>
-          </div>
-          <input type="text" className="form-control" onChange={oncomp} required/>
-           </div>
-           <div className="">
-             {/* jop title--------------------------------------- */}
-              <div className="input-group mt-1">
-  <        div className="input-group-prepend">
-         <span className="input-group-text c-orange" id="">jop title</span>
-          </div>
-          <input type="text" className="form-control" onChange={ontitle}/>
-           </div>
-           
-           {/* date--------------------------------------- */}
-           <h6 className="text-dark mt-3">Joining Date</h6>
-           <div className="input-group mt-1">
-  <        div className="input-group-prepend">
-         <span className="input-group-text c-orange" id="">from</span>
-          </div>
-          <input type="date" className="form-control" onChange={onfrom} required/>
-           </div>
-           <div className="input-group mt-1">
-  <        div className="input-group-prepend">
-         <span className="input-group-text c-orange" id="">to</span>
-          </div>
-          <input type="date" className="form-control" onChange={onto}required/>
-           </div>
-             {/* summary--------------------------------------- */}
-             <div className="input-group mt-1">
-  <        div className="input-group-prepend">
-         <span className="input-group-text c-orange" id="">summary</span>
-          </div>
-          <textarea rows="" cols=""  className="form-control" maxLength={140} onChange={onworksummary}required></textarea>
-           </div>
-           </div>
-           <input className="input-group-text c-orange w-100 tc mt-2 " onSubmit={onaddwork} type="submit" name="" value="add item"/>
-     </form>
-         
-      
+           <input className="input-group-text c-orange w-100 tc mt-2 " onSubmit={onaddwork} type="submit" name="" value={btnwork}/>
+     </form>   
            
         </div>
         {/* CERTIFICATES---------------------------------------------------------------- */}
         <div className="work-add dnon"style={{ display:sec5}}>
             <h3 className="c-orange m-3">
             CERTIFICATES          </h3>
-            <span>You must click on Add Item to add the item</span>
+            <span className="text-danger">Maximum 3 items</span>
             {/* certificate--------------------------------------- */}
             <form className=" border border-warning mt-3 p-2"onSubmit={onaddcer}>
                 
@@ -761,7 +528,7 @@ crossOrigin="anonymous"></script>
   <        div className="input-group-prepend">
          <span className="input-group-text c-orange" id="">certificate name </span>
           </div>
-          <input type="text" className="form-control" onChange={oncert}required/>
+          <input type="text" className="form-control" value={cer.deg} onChange={oncert}required/>
            </div>
            <div className="">
        
@@ -771,7 +538,7 @@ crossOrigin="anonymous"></script>
   <        div className="input-group-prepend">
          <span className="input-group-text c-orange" id="">date</span>
           </div>
-          <input type="date"onChange={ondatecer}required  className="form-control"/>
+          <input type="date"onChange={ondatecer}required value={cer.date}  className="form-control"/>
            </div>
 
              {/* summary--------------------------------------- */}
@@ -779,69 +546,11 @@ crossOrigin="anonymous"></script>
   <        div className="input-group-prepend">
          <span className="input-group-text c-orange" id="">summary</span>
           </div>
-          <textarea rows="" cols=""  className="form-control"onChange={oncersummary} maxLength={60} required></textarea>
+          <textarea rows="" cols=""  className="form-control"onChange={oncersummary} value={cer.summary} maxLength={60} required></textarea>
            </div>
            </div>
-           <input className="input-group-text c-orange w-100 tc mt-2 " onSubmit={onaddcer} type="submit" name="" value="add item"/>
+           <input className="input-group-text c-orange w-100 tc mt-2 " onSubmit={onaddcer} type="submit" name="" value={btncer}/>
            </form>
-           <form className=" border border-warning mt-3 p-2"onSubmit={onaddcer}>
-                
-                <div className="input-group mt-3">
-       <        div className="input-group-prepend">
-              <span className="input-group-text c-orange" id="">certificate name </span>
-               </div>
-               <input type="text" className="form-control" onChange={oncert}required/>
-                </div>
-                <div className="">
-            
-                {/* date--------------------------------------- */}
-               
-                <div className="input-group mt-1">
-       <        div className="input-group-prepend">
-              <span className="input-group-text c-orange" id="">date</span>
-               </div>
-               <input type="date"onChange={ondatecer}required  className="form-control"/>
-                </div>
-     
-                  {/* summary--------------------------------------- */}
-                  <div className="input-group mt-1">
-       <        div className="input-group-prepend">
-              <span className="input-group-text c-orange" id="">summary</span>
-               </div>
-               <textarea rows="" cols=""  className="form-control"onChange={oncersummary} maxLength={90} required></textarea>
-                </div>
-                </div>
-                <input className="input-group-text c-orange w-100 tc mt-2 " onSubmit={onaddcer} type="submit" name="" value="add item"/>
-                </form>
-                <form className=" border border-warning mt-3 p-2"onSubmit={onaddcer}>
-                
-                <div className="input-group mt-3">
-       <        div className="input-group-prepend">
-              <span className="input-group-text c-orange" id="">certificate name </span>
-               </div>
-               <input type="text" className="form-control" onChange={oncert}required/>
-                </div>
-                <div className="">
-            
-                {/* date--------------------------------------- */}
-               
-                <div className="input-group mt-1">
-       <        div className="input-group-prepend">
-              <span className="input-group-text c-orange" id="">date</span>
-               </div>
-               <input type="date"onChange={ondatecer}required  className="form-control"/>
-                </div>
-     
-                  {/* summary--------------------------------------- */}
-                  <div className="input-group mt-1">
-       <        div className="input-group-prepend">
-              <span className="input-group-text c-orange" id="">summary</span>
-               </div>
-               <textarea rows="" cols=""  className="form-control"onChange={oncersummary} maxLength={90} required></textarea>
-                </div>
-                </div>
-                <input className="input-group-text c-orange w-100 tc mt-2 " onSubmit={onaddcer} type="submit" name="" value="add item"/>
-                </form>
            
            <button className="btn btn-success w-100 text-center mt-4" onClick={addcv} type=""> create cv</button>
         </div>
@@ -867,7 +576,8 @@ crossOrigin="anonymous"></script>
                      setcurrent(current)
                      onblock()
                      ondisable()
-                     onbtn()   
+                     onbtn()  
+                     console.log(current) 
               }else{
                      alert("Complete the remaining fields")
               }
