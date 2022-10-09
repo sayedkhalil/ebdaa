@@ -1,0 +1,45 @@
+[debug] [2022-03-01T01:37:40.286Z] ----------------------------------------------------------------------
+[debug] [2022-03-01T01:37:40.287Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Sayed Khalil\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
+[debug] [2022-03-01T01:37:40.288Z] CLI Version:   10.2.0
+[debug] [2022-03-01T01:37:40.288Z] Platform:      win32
+[debug] [2022-03-01T01:37:40.288Z] Node Version:  v16.14.0
+[debug] [2022-03-01T01:37:40.294Z] Time:          Tue Mar 01 2022 04:37:40 GMT+0300 (التوقيت العربي الرسمي)
+[debug] [2022-03-01T01:37:40.295Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-03-01T01:37:40.376Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-03-01T01:37:40.377Z] > authorizing via signed-in user (sayedkhalil9920@gmail.com)
+[info] i  emulators: Starting emulators: hosting {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: hosting"}}
+[debug] [2022-03-01T01:37:40.419Z] [hub] writing locator at C:\Users\SAYEDK~1\AppData\Local\Temp\hub-elfursan-72818.json
+[debug] [2022-03-01T01:37:40.473Z] > refreshing access token with scopes: []
+[debug] [2022-03-01T01:37:40.473Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2022-03-01T01:37:40.911Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","date":"Tue, 01 Mar 2022 01:37:38 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-03-01T01:37:40.955Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/elfursan-72818/sites 
+[debug] [2022-03-01T01:37:42.631Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/elfursan-72818/sites 403
+[debug] [2022-03-01T01:37:42.632Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/elfursan-72818/sites {"error":{"code":403,"message":"Permission 'firebasehosting.sites.get' denied on resource 'projects/elfursan-72818' (or it may not exist)","status":"PERMISSION_DENIED"}}
+[debug] [2022-03-01T01:37:42.634Z] Failed to list hosting sites
+[debug] HTTP Error: 403, Permission 'firebasehosting.sites.get' denied on resource 'projects/elfursan-72818' (or it may not exist)
+[debug] [2022-03-01T01:37:42.637Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/elfursan-72818/webApps/-/config [none]
+[debug] [2022-03-01T01:37:43.295Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/elfursan-72818/webApps/-/config 403
+[debug] [2022-03-01T01:37:43.296Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/elfursan-72818/webApps/-/config {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2022-03-01T01:37:43.297Z] fetchWebSetup error: FirebaseError: HTTP Error: 403, The caller does not have permission
+[warn] !  hosting: Authentication error when trying to fetch your current web app configuration, have you run firebase login? 
+[warn] !  hosting: Could not fetch web app configuration and there is no cached configuration on this machine. Check your internet connection and make sure you are authenticated. To continue, you must call firebase.initializeApp({...}) in your code before using Firebase. 
+[info] i  hosting: Serving hosting files from: out {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mout\u001b[22m"}}
+[info] +  hosting: Local server: http://localhost:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5000\u001b[22m\u001b[24m"}}
+[warn] !  emulators: The Emulator UI requires a project ID to start. Configure your default project with 'firebase use' or pass the --project flag. {"metadata":{"emulator":{"name":"hub"},"message":"The Emulator UI requires a project ID to start. Configure your default project with 'firebase use' or pass the --project flag."}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+└─────────────────────────────────────────────────────────────┘
+
+┌──────────┬────────────────┐
+│ Emulator │ Host:Port      │
+├──────────┼────────────────┤
+│ Hosting  │ localhost:5000 │
+└──────────┴────────────────┘
+  Emulator Hub running at localhost:4400
+  Other reserved ports: None
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
