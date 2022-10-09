@@ -84,18 +84,13 @@ crossOrigin="anonymous"></script>
 <nav className="navbar navbar-light bg-white">
   <div className="container">
     <a className="navbar-brand mx-auto" href="/">
-      <img src="/logo.png" alt="" width="100" height="70" className="d-inline-block align-text-top"/>
+      <img src="https://firebasestorage.googleapis.com/v0/b/cvebdaa.appspot.com/o/logo-01.png?alt=media&token=96808f56-1ecb-42c9-b621-35d31208737e" alt="" width="100" height="70" className="d-inline-block align-text-top"/>
     </a>
   </div>
 </nav>
 <nav className={`navbar navbar-expand-lg navbar-light bg-light ${styles.navmob}`}>
   <div className="container-fluid">
-   <Link href='/cart'>
-    <a className="navbar-brand" >
-    {appState.length? <span className="nof">{appState.length?appState.length:""}</span>:""}
-         <i src="/cart.svg" alt="" width="50" height="30" className="d-inline-block align-text-top fa fa-shopping-bag  fa-2x text-danger"></i>
-        </a>
-        </Link>
+   
     <button className="navbar-toggler" type="button" onClick={onnave}>
       <span className="navbar-toggler-icon"></span>
     </button>
