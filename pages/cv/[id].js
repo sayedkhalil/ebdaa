@@ -73,7 +73,7 @@ const Product = ({item}) => {
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" 
 crossOrigin="anonymous"></script>
-<title>{`cv${cv.name}`}</title>
+<title>{`cv${cv.name}`}</title>   
    <link rel="icon" href={cv.pic} type="image/x-icon" />
         </Head>
     <div className="a4 row "ref={a4Ref} id="a4">
@@ -251,7 +251,7 @@ crossOrigin="anonymous"></script>
      </>
      );
 }
- 
+//  hdh
 export default Product;
 export async function getStaticPaths() {
     const pro=[]

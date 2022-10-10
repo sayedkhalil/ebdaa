@@ -257,7 +257,7 @@ const uploadlogo = (e) => {
          cers.push(cer)
      setcers(cers);
      setcv({...cv,cers:cers})
-     setcer({deg:"",date:"",summary:""})
+     setcer({deg:"",date:"",summary:""}) 
         setbtncer("Add another item")
       } else{
             setbtncer("You have entered the maximum number of items")    
