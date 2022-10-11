@@ -215,12 +215,15 @@ transition: all ease-in-out .8s;
 }
 .label{
   margin-top: 3mm;
-  height: 25mm;
-  width: 5.5cm;
+  height: 20mm;
+  width:6.5cm;
   border-radius: 3mm 3mm 3mm 3mm;
   padding-top: 3mm;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   border: 2px #F79421 solid ;
+  position: absolute;
+  top: 4.5cm;
+  left: 2mm;
 }
 hr{
   height: 2mm;
@@ -285,6 +288,9 @@ padding-top: 5px;
 .sp img{
   width: 100px;
   height: 50px;
+}
+.mrr{
+  padding: 15px;
 }
 @media print {
   @page { size: 210mm 305mm; }}

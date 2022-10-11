@@ -159,7 +159,7 @@ crossOrigin="anonymous"></script>
 </div>
        </div>
        {/* cection 2 ---------------------------------------------------------------------------------------------------------------  */}
-       <div className="col-8 section-2">
+       <div className="col-8 section-2 mt-3">
          {/* summary------------------------------------------------------------------------------------- */}
          <div className="summary p-2">
            <img className="w-100" src="https://firebasestorage.googleapis.com/v0/b/cvebdaa.appspot.com/o/summary.svg?alt=media&token=393a9ca9-6b71-48e6-91cf-257c26bdcbc6" alt=""/>
@@ -201,21 +201,21 @@ crossOrigin="anonymous"></script>
          </div>
  </div>
  {/* exprienase-------------------------------------------------- */}
- <div className="exprien">
+ <div className="exprien mt-3">
    <img className="w-100" src="https://firebasestorage.googleapis.com/v0/b/cvebdaa.appspot.com/o/work.svg?alt=media&token=4fa51f4c-8f0f-4f12-86d5-9049509db86a" alt=""/>
    <div className="education w-100">
                         <div className="w-100 edu">
              <div className="vr">                  
              </div>
           
-            {cv.works.map(x=>( <div className="row w-100"key={cv.works.indexOf(x)}>
+            {cv.works.map(x=>( <div className="row mt-2 w-100"key={cv.works.indexOf(x)}>
              <div className="col-1 p-2 poi rounded-circle bg-dark">            
              </div>
-             <h6 className="text-dark  col-8">{x.jo}</h6>
-             <h5 className="col-3 ">{`${getyear(x.from)}-${getyear(x.to)}`}</h5>
+             <h6 className="text-dark p-1 col-8">{x.jo}</h6>
+             <h5 className="col-3 p-1 ">{`${getyear(x.from)}-${getyear(x.to)}`}</h5>
                <div className="col-12 ">                 
-               <h6 className="text-dark pl-1">{x.comp}</h6>
-               <p className="text-dark pl-1 fs-6">
+               <h6 className="text-dark p-1">{x.comp}</h6>
+               <p className="text-dark mrr fs-6">
              {x.summary}
                </p>
              </div>
@@ -226,11 +226,11 @@ crossOrigin="anonymous"></script>
           </div>
  </div>
    {/* certifacate------------------------------------------------------------ */}
-   <div className="exprien">
+   <div className="exprien mt-5">
    <img className="w-100" src="https://firebasestorage.googleapis.com/v0/b/cvebdaa.appspot.com/o/certi.svg?alt=media&token=a6639041-ee76-481d-be99-94b69ef6ad9b" alt=""/>
    <div className="w-100">
    
-     {cv.cers.map(x=>(<div className="work-item w-100 p-2 row"key={cv.cers.indexOf(x)}>
+     {cv.cers.map(x=>(<div className="work-item w-100 p-2 mt-3 row"key={cv.cers.indexOf(x)}>
    
    <div className="col-8">
    <h6 className="text-dark">{x.deg} </h6>
