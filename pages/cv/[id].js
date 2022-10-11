@@ -121,7 +121,7 @@ crossOrigin="anonymous"></script>
           <img className="col-12 mb-2" src="https://firebasestorage.googleapis.com/v0/b/cvebdaa.appspot.com/o/skills.svg?alt=media&token=1b9a8a61-2d63-4796-8803-a9be173d8eb0" alt=""/>
          {cv.skills.map(x=>( <div className="row w-100" key={cv.skills.indexOf(x)}>
           <h6 className="col-6 text-dark mt-1">{x.name}</h6>
-          <progress className="col-6 mt-2 text-dark" id="file" value={x.range} max="100"> 32% </progress>
+          <progress className="col-6 mt-2 text-dark" id="file" value={x.range<90?95:x.range} max="100"> 32% </progress>
           </div>))}
        </div>
 {/* langue----------------------------------------------------------------------------------- */}
