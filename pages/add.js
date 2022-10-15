@@ -124,6 +124,32 @@ const Add = () => {
                            setbtn5("btn-primary")            
                            break;}
    }
+   const onpress=()=>{
+       switch (current) {
+              case 2:
+                 alert(`name:${cv.name}........
+                 title jop:${cv.title}........
+                 birth date:${cv.birth}........
+                 summary:${cv.summary}........`
+                 ) 
+                  break;
+               case 3:
+                     alert(`${cv.skills.map(x=>`skill:${x.name}......
+                     range:${x.range}......`)}`
+                     )          
+                      break;
+               case 4:
+                     alert(`${cv.edues.map(x=>`deg:${x.deg}......
+                     uni:${x.uni}......`)}`
+                     )     
+                          break;
+               case 5:
+                     alert(`${cv.works.map(x=>`comp:${x.comp}......
+                     jop:${x.jo}......`)}`
+                     )        
+                          break;}
+            
+   }
     const ondisable=()=>{
         if(current>1){
             setbgbt1("btn-primary")
@@ -564,7 +590,7 @@ crossOrigin="anonymous"></script>
     onblock()  
     ondisable()
     onbtn()
-   }
+       }
      }}  >Previous</button>
 
   <button type="button" className={`${bgbt2} btn mx-5`}
@@ -577,6 +603,7 @@ crossOrigin="anonymous"></script>
                      onblock()
                      ondisable()
                      onbtn()  
+                     onpress()
                      console.log(current) 
               }else{
                      alert("Complete the remaining fields")
@@ -589,7 +616,8 @@ crossOrigin="anonymous"></script>
                      setcurrent(current)
                      onblock()
                      ondisable()
-                     onbtn()   
+                     onbtn()  
+                     onpress() 
               }else{
                      alert("Complete the remaining fields")
               }                  
@@ -601,7 +629,8 @@ crossOrigin="anonymous"></script>
                      setcurrent(current)
                      onblock()
                      ondisable()
-                     onbtn()   
+                     onbtn() 
+                     onpress()  
               }else{
                      alert("Complete the remaining fields")
               }                  
@@ -613,7 +642,8 @@ crossOrigin="anonymous"></script>
                       setcurrent(current)
                       onblock()
                       ondisable()
-                      onbtn()   
+                      onbtn()  
+                      onpress() 
                }else{
                       alert("Complete the remaining fields")
                }                  

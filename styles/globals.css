@@ -292,6 +292,20 @@ padding-top: 5px;
 .mrr{
   padding: 15px;
 }
+.sir{
+  width: 75%;
+  margin: auto;
+  height: 70px;
+  border-radius: 20px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.sir img{
+  height: 70px;
+  width: fit-content;
+  border-radius: 35px;
+}
+
 @media print {
   @page { size: 210mm 305mm; }}
   .lkl{

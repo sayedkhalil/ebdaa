@@ -103,7 +103,7 @@ export default function Home({getdata}) {
     <div className='mt-5'>
     <div class="input-group mb-3 w-100">
   <div class="input-group-prepend w-225">
-    <label class="input-group-text bg-orange" for="inputGroupSelect01">Options</label>
+    <label class="input-group-text c-orange bg-orange" for="inputGroupSelect01">title jop</label>
   </div>
   <select class="custom-select w-100" id="inputGroupSelect01" onChange={resort}>
     <option selected >Choose...</option>
@@ -114,7 +114,7 @@ export default function Home({getdata}) {
     </div>   
     <div className='w-100'>
       {stream.map(x=>(
-   <div onClick={()=>onh(x.name)} className='w-100 border border  border-warning row rounded '>
+   <div onClick={()=>onh(x.name)} className='w-100 border border sir  border-warning row rounded-bill '>
    <div className='col-11'>
      <h4>
       {x.name}
