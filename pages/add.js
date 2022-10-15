@@ -162,7 +162,7 @@ const Add = () => {
             setbgbt2("btn-primary") 
         }
     }
-//     upload image ................................................................................
+//     upload image 5454................................................................................
 const uploadlogo = (e) => {
        const filelogo = e.target.files[0];
        if(filelogo){
